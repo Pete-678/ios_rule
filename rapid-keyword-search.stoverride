@@ -1,0 +1,14 @@
+name: rapid search commond model with keyword
+desc: rapid search commond models v202200408.01, Source code from personal use, inculdes google keyword ex gh-github aus-amazon ddg-duckduckgo
+
+http:
+  mitm:
+    - "www.google.com.tw"
+    - "www.google.com"
+  rewrite:
+    - ^https?:\/\/www\.google\.com(\.tw)?\/search\?q=gh\+([^&]+).+ https://github.com/search?q=$2 302
+    - ^https?:\/\/www\.google\.com(\.tw)?\/search\?client=\w+\&rls=\w+\&q=gh\+([^&]+).+ https://github.com/search?q=$2 302
+    - ^https?:\/\/www\.google\.com(\.tw)?\/search\?q=aus\+([^&]+).+ https://www.amazon.com/s?k=$2 302
+    - ^https?:\/\/www\.google\.com(\.tw)?\/search\?q=ajp\+([^&]+).+ https://www.amazon.co.jp/s?k=$2 302
+    - ^https?:\/\/www\.google\.com(\.tw)?\/search\?q=ddg\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$2 302
+    - ^https?:\/\/www\.google\.com(\.tw)?\/search\?client=\w+\&rls=\w+\&q=ddg\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$2 302

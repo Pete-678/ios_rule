@@ -1,0 +1,17 @@
+name: remove manhuaren ads
+desc: Line manhuaren ads v20220225.01, Source code from https://github.com/jimmyorz/Surge
+
+http:
+  mitm:
+    - "mangaapi.manhuaren.com"
+  rewrite:
+    - ^https?:\/\/mangaapi.manhuaren.com\/.+\/public\/(getShelfActivity|getStartPageAds|getStartPageAds2|getRecommendedGame|getAditem|getAds|getMultiAds|getUpgradeInfo|getVendor|getUserLocation) - reject
+    - ^https?:\/\/mangaapi.manhuaren.com\/.+\/manga\/getMangaPromotionActivity - reject 
+    - ^https?:\/\/mangaapi.manhuaren.com\/.+\/ad\/ - reject 
+rules:
+  - DOMAIN-SUFFIX,hkadsapi.manhuaren.com,REJECT
+  - DOMAIN-SUFFIX,adsapi.manhuaren.com,REJECT
+  - DOMAIN-SUFFIX,videoapi.manhuaren.com,REJECT
+  - DOMAIN-SUFFIX,bi.manhuaren.com,REJECT
+  - DOMAIN-SUFFIX,euadsapi.manhuaren.com,REJECT
+#  - DOMAIN-SUFFIX,applog.uc.cn,REJECT-TINYGIF
